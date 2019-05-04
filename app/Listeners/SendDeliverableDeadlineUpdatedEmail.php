@@ -26,6 +26,6 @@ class SendDeliverableDeadlineUpdatedEmail
      */
     public function handle(DeliverableDeadlineUpdated $event)
     {
-        //TODO: SEND EMAIL
+        // TODO: SEND EMAIL
     }
 }

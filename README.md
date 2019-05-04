@@ -116,4 +116,6 @@ Or use the `page` parameter to go the next page:
 
 `api/deliverables?page=2`
 
+## Unit Tests
+The only thing that's being unit tested is the abstract filter logic. Everything else is just implementation of a heavily tested framework. Integration tests could be useful for checking a status on a route.
 

@@ -12,9 +12,14 @@ class DeliverableDeadlineUpdated
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     /**
-     * Create a new event instance.
+     * @var Deliverable
+     */
+    public $deliverable;
+
+    /**
+     * DeliverableDeadlineUpdated constructor.
      *
-     * @return void
+     * @param Deliverable $deliverable
      */
     public function __construct(Deliverable $deliverable)
     {

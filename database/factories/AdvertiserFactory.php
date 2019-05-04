@@ -21,7 +21,8 @@ $factory->define(
     \App\Advertiser::class,
     function (Faker $faker) {
         return [
-            'name' => $faker->company
+            'name' => $faker->company,
+            'email' => $faker->email,
         ];
     }
 );

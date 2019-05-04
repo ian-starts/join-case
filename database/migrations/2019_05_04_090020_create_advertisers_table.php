@@ -17,6 +17,7 @@ class CreateAdvertisersTable extends Migration
             $table->bigIncrements('id');
             $table->string('uuid');
             $table->string('name');
+            $table->string('email');
             $table->timestamps();
         });
     }

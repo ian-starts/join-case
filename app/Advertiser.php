@@ -9,8 +9,9 @@ use Webpatser\Uuid\Uuid;
 
 /**
  * Class Advertiser
- * @property string name
- * @property string uuid
+ * @property string                name
+ * @property string                uuid
+ * @property string                email
  * @property Campaign[]|Collection campaigns
  * @package App
  */
@@ -22,7 +23,8 @@ class Advertiser extends Model
      * @var array
      */
     protected $fillable = [
-        'name'
+        'name',
+        'email',
     ];
 
     /**

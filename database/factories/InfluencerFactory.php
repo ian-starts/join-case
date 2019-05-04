@@ -21,7 +21,8 @@ $factory->define(
     \App\Influencer::class,
     function (Faker $faker) {
         return [
-            'name' => $faker->firstName
+            'name' => $faker->firstName,
+            'email' => $faker->email,
         ];
     }
 );

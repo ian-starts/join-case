@@ -9,8 +9,9 @@ use Webpatser\Uuid\Uuid;
 
 /**
  * Class Influencer
- * @property string uuid
- * @property string name
+ * @property string                   uuid
+ * @property string                   name
+ * @property string                   email
  * @property Deliverable[]|Collection deliverables
  * @package App
  */
@@ -22,7 +23,8 @@ class Influencer extends Model
      * @var array
      */
     protected $fillable = [
-        'name'
+        'name',
+        'email,'
     ];
 
     /**

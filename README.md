@@ -15,12 +15,18 @@ To keep it as abstract as possible, there is one URL for getting deliverables. F
 
 But more on that later.
 
+The mailer is not implemented due to the ease of creating an email in laravel.
+The application has checks on certain Events on the Deliverable Model. It checks for a create event and for a deadline updated event. 
+When one of these events is triggered, an event is broadcasted, with mailers listening for those events.
+See the TODO's for more info.
+
 ## Requirements
 * Docker
 
 ## Installation
 
 * clone the repo and enter the directory
+* `cp .env.example .env`
 * run `docker-compose up`
 * run `composer install` or if you don't want to install composer run 
 ```bash

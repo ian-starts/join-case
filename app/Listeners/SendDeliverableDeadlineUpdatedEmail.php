@@ -5,8 +5,9 @@ namespace App\Listeners;
 use App\Events\DeliverableDeadlineUpdated;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Support\Facades\Mail;
 
-class SendDeliverableDeadlineUpdatedEmail
+class SendDeliverableDeadlineUpdatedEmail implements ShouldQueue
 {
     /**
      * Create the event listener.
@@ -21,11 +22,16 @@ class SendDeliverableDeadlineUpdatedEmail
     /**
      * Handle the event.
      *
-     * @param  DeliverableDeadlineUpdated  $event
+     * @param  DeliverableDeadlineUpdated $event
+     *
      * @return void
      */
     public function handle(DeliverableDeadlineUpdated $event)
     {
-        // TODO: SEND EMAIL
+//        $event->deliverable->influencers->each(
+//            function ($influencer) use ($event) {
+//                Mail::to($influencer->email)->send(new \App\Mail\DeliverableDeadlineUpdated($event->deliverable));
+//            }
+//        );
     }
 }

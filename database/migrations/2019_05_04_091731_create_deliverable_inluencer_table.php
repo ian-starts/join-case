@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDeliverableContentInluencerTable extends Migration
+class CreateDeliverableInluencerTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateDeliverableContentInluencerTable extends Migration
      */
     public function up()
     {
-        Schema::create('deliverable_inluencer', function (Blueprint $table) {
+        Schema::create('deliverable_influencer', function (Blueprint $table) {
             $table->unsignedBigInteger('deliverable_id');
             $table->foreign('deliverable_id')->references('id')->on('deliverables');
             $table->unsignedBigInteger('influencer_id');

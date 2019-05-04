@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\Events\DeliverableCreated;
+use App\Events\DeliverableDeadlineUpdated;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -62,8 +64,23 @@ class Deliverable extends Model
     public static function boot()
     {
         parent::boot();
-        self::creating(function ($model) {
-            $model->uuid = (string) Uuid::generate(4);
-        });
+        self::creating(
+            function (Deliverable $model) {
+                $model->uuid = (string)Uuid::generate(4);
+            }
+        );
+        self::created(
+            function (Deliverable $model) {
+                event(new DeliverableCreated($model));
+            }
+        );
+        self::updated(
+            function (Deliverable $model) {
+                if ($model->concept_deadline != $model->getOriginal('concept_deadline') ||
+                    $model->publication_deadline != $model->getOriginal('publication_deadline')) {
+                    event(new DeliverableDeadlineUpdated($model));
+                }
+            }
+        );
     }
 }

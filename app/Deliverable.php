@@ -7,8 +7,20 @@ use App\Events\DeliverableDeadlineUpdated;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Support\Collection;
 use Webpatser\Uuid\Uuid;
 
+/**
+ * Class Deliverable
+ * @property string uuid
+ * @property string name
+ * @property string status
+ * @property \DateTime concept_deadline
+ * @property \DateTime publication_deadline
+ * @property Influencer[]|Collection influencers
+ * @property Campaign campaign
+ * @package App
+ */
 class Deliverable extends Model
 {
     /**
@@ -39,7 +51,8 @@ class Deliverable extends Model
      * @var array
      */
     protected $hidden = [
-        'id'
+        'id',
+        'campaign_id',
     ];
 
     /**

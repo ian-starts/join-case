@@ -4,9 +4,16 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Support\Collection;
 use Webpatser\Uuid\Uuid;
 
-
+/**
+ * Class Influencer
+ * @property string uuid
+ * @property string name
+ * @property Deliverable[]|Collection deliverables
+ * @package App
+ */
 class Influencer extends Model
 {
     /**

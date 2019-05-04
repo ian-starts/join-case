@@ -4,8 +4,16 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Collection;
 use Webpatser\Uuid\Uuid;
 
+/**
+ * Class Advertiser
+ * @property string name
+ * @property string uuid
+ * @property Campaign[]|Collection campaigns
+ * @package App
+ */
 class Advertiser extends Model
 {
     /**

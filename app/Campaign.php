@@ -5,8 +5,17 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Collection;
 use Webpatser\Uuid\Uuid;
 
+/**
+ * Class Campaign
+ * @property string name
+ * @property string uuid
+ * @property Deliverable[]|Collection deliverables
+ * @property Advertiser advertiser
+ * @package App
+ */
 class Campaign extends Model
 {
     /**
@@ -24,7 +33,8 @@ class Campaign extends Model
      * @var array
      */
     protected $hidden = [
-        'id'
+        'id',
+        'advertiser_id'
     ];
 
     /**

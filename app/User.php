@@ -8,6 +8,14 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use Webpatser\Uuid\Uuid;
 
+/**
+ * Class User
+ * @property string uuid
+ * @property string name
+ * @property string email
+ * @property string password
+ * @package App
+ */
 class User extends Authenticatable implements JWTSubject
 {
     use Notifiable;

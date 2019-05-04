@@ -42,7 +42,8 @@ class SendDeliverablesReminders extends Command
         $compareDate = (new \DateTime())->add(new \DateInterval('P7D'));
         Deliverable::all()->each(
             function (Deliverable $deliverable) use ($compareDate) {
-                if ($deliverable->publication_deadline < $compareDate || $deliverable->concept_deadline < $compareDate) {
+                if (($deliverable->publication_deadline < $compareDate || $deliverable->concept_deadline < $compareDate)
+                    && $deliverable->status === 'pending') {
                     $deliverable->influencers->each(
                         function (Influencer $influencer) use ($deliverable) {
                             Mail::to($influencer->email)->send(new DeliverableReminder($deliverable));

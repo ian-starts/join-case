@@ -15,10 +15,15 @@ To keep it as abstract as possible, there is one URL for getting deliverables. F
 
 But more on that later.
 
-The mailer is not implemented due to the ease of creating an email in laravel.
+The mailer body is not implemented due to it being outside the scope.
 The application has checks on certain Events on the Deliverable Model. It checks for a create event and for a deadline updated event. 
 When one of these events is triggered, an event is broadcasted, with mailers listening for those events.
-See the TODO's for more info.
+There is also a console command that runs daily with the laravel scheduler. This command checks for pending deliverable deadlines coming up 
+in the next week, and sends reminders to the infuencers.
+
+All the Listeners implemet the ShouldQueue interface, to keep the app snappy when using sluggish SMTP mailing.
+
+Lastly the Event Listeners are currenly commented out because they're also triggered with DB seeds, causing the seeds to crash if the mailing facade can't be resolved.
 
 ## Requirements
 * Docker

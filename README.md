@@ -40,7 +40,7 @@ The DockerFile automatically handles self signed SSL certs through letsencrypt, 
 
 ## API
 ### Login
-The deliverables are under a protected JWT middleware. This implements standers JWT calls:
+The deliverables are under a protected JWT middleware. This implements standard JWT calls:
 
 * Signup: 
 	* method: post 

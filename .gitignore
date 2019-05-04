@@ -5,6 +5,7 @@
 /vendor
 .env
 .idea
+.ssl
 .phpunit.result.cache
 Homestead.json
 Homestead.yaml
